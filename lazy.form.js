@@ -60,6 +60,7 @@
 						if (_json[i] != null) {
 							var _target = $('input[name="' + i + '"]');
 							var _attr = _target.attr('type');
+							var _textarea = $('textarea[name="' + i + '"]');
 
 							if (_attr == "text") {
 								_target.val(_json[i]);
@@ -70,7 +71,9 @@
 										$(this).trigger('click');
 									}
 								});
-							} 
+							} else if (_textarea.length) {
+						                _textarea.val(_json[i]);
+						            }
 
 							settings.after();
 						}
